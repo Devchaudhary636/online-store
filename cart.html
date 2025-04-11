@@ -1,0 +1,67 @@
+<!-- cart.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Cart</title>
+  <style>
+    /* simple styling */
+    .item { margin: 10px 0; padding: 10px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <h2>Your Cart</h2>
+  <div id="cart-container"></div>
+
+  <script>
+    let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    let cartContainer = document.getElementById("cart-container");
+
+    if (cartItems.length === 0) {
+      cartContainer.innerHTML = "<p>Cart is empty</p>";
+    } else {
+      cartItems.forEach((item, index) => {
+        let div = document.createElement("div");
+        div.className = "item";
+        div.innerHTML = `${item.name} - ₹ ${item.price}`;
+        cartContainer.appendChild(div);
+      });
+    }
+  </script>
+</body>
+</html>
+
+
+<script>
+    let cartItem,s = JSON.parse(localStorage.getItem("cart")) || [];
+    let cartcontainer = document.getElementById("cart-container");
+  
+    function updateCartDisplay() {
+      cartContainer.innerHTML = ""; // Clear existing
+      if (cartItems.length === 0) {
+        cartContainer.innerHTML = "<p>Cart is empty</p>";
+        return;
+      }
+  
+      cartItems.forEach((item, index) => {
+        if (!item.name || !item.price) return;
+  
+        let div = document.createElement("div");
+        div.className = "item";
+        div.innerHTML = `
+          ${item.name} - ₹${item.price}
+          <button onclick="removeItem(${index})" style="margin-left: 10px;">Remove</button>
+        `;
+        cartContainer.appendChild(div);
+      });
+    }
+  
+    function removeItem(index) {
+      cartItems.splice(index, 1); // Remove selected item
+      localStorage.setItem("cart", JSON.stringify(cartItems));
+      updateCartDisplay(); // Refresh cart view
+    }
+  
+    updateCartDisplay(); // Initial display
+  </script>
+  

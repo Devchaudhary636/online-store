@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dev's Online Store</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    fruit,s Online Store
+  </header>
+
+  <div class="store-container" id="store">
+    <!-- Products will be injected here by script.js -->
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>
+
+<div class="store-container" id="store">
+  <!-- YAHAN paste karo -->
+  <div class="fruit-item">
+    <h3>Apple</h3>
+    <p>Price: ₹30</p>
+    <button onclick='addToCart({name: "Apple", price: 30})'>Add to Cart</button>
+  </div>
+</div>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dev's Online Store</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Dev's Online Fruit Store</h1>
+    <a href="cart.html">My Cart</a>
+  </header>
+
+  <div class="store-container" id="store">
+    <!-- Fruits will show here -->
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
